@@ -30,7 +30,7 @@ function Navbar() {
     <>
       <nav className="bg-blue-200 border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <button
+          {location.pathname == "/" && <button
             type="button"
             data-collapse-toggle="navbar-search"
             aria-controls="navbar-search"
@@ -54,7 +54,7 @@ function Navbar() {
               />
             </svg>
             <span className="sr-only">Search</span>
-          </button>
+          </button>}
           <div className="flex md:order-2">
             <div className="relative hidden md:block">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -145,6 +145,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/"
+                  onClick={() => setShowNav((prev) => !prev)}
                   className={`block py-2 px-3 bg-blue-700 rounded md:bg-transparent ${
                     location.pathname === "/"
                       ? "md:text-blue-700"
@@ -161,6 +162,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/cart"
+                  onClick={() => setShowNav((prev) => !prev)}
                   className={`block py-2 px-3  bg-blue-700 rounded md:bg-transparent ${
                     location.pathname === "/cart"
                       ? "md:text-blue-700"
